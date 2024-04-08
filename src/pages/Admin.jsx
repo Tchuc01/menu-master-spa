@@ -27,33 +27,43 @@ const Admin = () => {
     };
 
     const data = [
-        {
-          id: 1,
-          category: 'Principal',
-          items: [
-            { id: 1, name: 'Parmegiana', 
-                     price: 21.90,
-                     rating: 5,
-                     image:'https://cooknenjoy.com/wp-content/uploads/2022/02/Bife-a-Parmegiana-02-1920x1442.jpg',
-                     description: 'Bife à parmegiana com arroz e batata frita'
-            },
-            { id: 2, name: 'Bife', 
-                     price: 8.5,
-                     rating: 4.5,
-                     description: 'Bife com fritas',
-                     image: 'https://www.minhareceita.com.br/app/uploads/2022/10/2647-bife-bovino-de-churrasco-alemao-rindersteak-1-aspect-ratio-270-260.jpg' 
-            },
-          ],
-        },
-        {
-          id: 2,
-          category: 'Bebidas',
-          items: [
-            { id: 3, name: 'Coca-Cola', price: 8, rating: 4, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxG53Ui_cpIf9t1aosCovBKavvv5NZ16QBB8mcQTwM5Q&s'},
-            { id: 4, name: 'Suco', price: 25 },
-          ],
-        },
-      ];
+      {
+        id: 1,
+        category: 'Principal',
+        items: [
+          { id: 1, name: 'Parmegiana', 
+                   price: 21.90,
+                   rating: 4,
+                   image:'https://cooknenjoy.com/wp-content/uploads/2022/02/Bife-a-Parmegiana-02-1920x1442.jpg',
+                   description: 'Bife à parmegiana com arroz e batata frita'
+          },
+          { id: 2, name: 'Bife', 
+                   price: 8.5,
+                   rating: 4.5,
+                   description: 'Bife com fritas',
+                   image: 'https://www.minhareceita.com.br/app/uploads/2022/10/2647-bife-bovino-de-churrasco-alemao-rindersteak-1-aspect-ratio-270-260.jpg' 
+          },
+        ],
+      },
+      {
+        id: 2,
+        category: 'Bebidas',
+        items: [
+          { id: 3, name: 'Coca-Cola',
+                   price: 8,
+                   rating: 4,
+                   description: 'Coca-Cola gelada 2L',
+                   image: 'https://andinacocacola.vtexassets.com/arquivos/ids/157660-1600-auto?v=638404087237670000&width=1600&height=auto&aspect=true'
+          },
+          { id: 4, name: 'Suco',
+                   price: 25,
+                   description: 'Suco de laranja 1L',
+                   image: 'https://www.citrosuco.com.br/wp-content/uploads/2022/02/THUMB-05.png',
+                   rating: 4.5,
+          },
+        ],
+      },
+    ];
   
     return (
         <div id='admin'>
@@ -105,6 +115,8 @@ const Admin = () => {
                          <option value={category.id}>{category.category}</option>
                     ))}
                 </Form.Select>
+                <Form.Label className='mt-4'>Imagem do Produto</Form.Label>
+                <Form.Control type="file" />
               </Form.Group>
             </Form>
           </Modal.Body>
