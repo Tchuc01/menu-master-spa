@@ -1,20 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Index from './pages/Index';
-import Admin from './pages/Admin';
-import './assets/stylesheets/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './assets/stylesheets/style.css';
+import Admin from './pages/Admin';
+import Home from './pages/Index';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Restaurant from './pages/Restaurant';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/register" element={<Register />} />
+        <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/index" element={<Index />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );
