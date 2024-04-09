@@ -33,7 +33,7 @@ const Home = () => {
                     <h2>Restaurantes disponíveis</h2>
                 </div>
                 {restaurants.map(restaurant => (
-                    <div key={restaurant.id} className="restaurant-card">
+                    <div key={restaurant.id} className="restaurant-card" onClick={() => window.location.href=`/${restaurant.username}`}>
                         <h3 className='restaurant-name'>{restaurant.name}</h3>
                         <img className='restaurant-logo' src={restaurant.logo} alt={restaurant.name} />
                     </div>
