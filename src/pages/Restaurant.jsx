@@ -37,7 +37,7 @@ const data = [
 
 const Restaurant = () => {
   return (
-    <div id='home'>
+    <div id='restaurant'>
       {/* Header */}
       <div className="header">
         <div className="logo">Logo Aqui</div>

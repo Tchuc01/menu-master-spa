@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import MainLogo from '../shared/components/MainLogo';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -20,8 +21,7 @@ const Login = () => {
   return (
     <div className='card-container'>
         <div className='card d-flex flex-column align-items-center'>
-            <div className='logo-image'></div>
-            <h2 className='logo-name mb-4'>Menu Master</h2>
+            <MainLogo className="mb-4"/>
             <form className='d-flex flex-column align-items-center btn-100' onSubmit={handleSubmit}>
                 <input className='form-control mb-3' type="text" name="username" placeholder="Usuário" onChange={handleChange} />
                 <input className='form-control mb-3' type="password" name="password" placeholder="Senha" onChange={handleChange} />
