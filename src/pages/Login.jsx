@@ -24,20 +24,19 @@ const Login = () => {
       password: formData.password,
     }, {
       headers: {
-        'Content-Type': 'application/json', // Alterado para JSON
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => {
         const { token } = response.data;
-
-        
-
+  
         localStorage.setItem('token', token);
-
-        navigate('/index');
+        localStorage.setItem('username', formData.username);
+  
+        navigate('/admin');
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error(error);
       });
   };
 

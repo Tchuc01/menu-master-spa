@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSignOutAlt  } from '@fortawesome/free-solid-svg-icons';
 import Category from '../shared/components/Category';
 import Product from '../shared/components/Product';
+import api from '../service/api';
 
 const Admin = () => {
     const [showCategoryModal, setShowCategoryModal] = useState(false);
@@ -15,12 +16,38 @@ const Admin = () => {
     const handleShowCategoryModal = () => setShowCategoryModal(true);
     const handleCloseProductModal = () => setShowProductModal(false);
     const handleShowProductModal = () => setShowProductModal(true);
+
+    const [restaurantInfo, setRestaurantInfo] = useState(null);
+
+    useEffect(() => {
+      const fetchRestaurantInfo = async () => {
+        const token = localStorage.getItem('token');
+        const username = localStorage.getItem('username');
+  
+        api.get(`/restaurant/${username}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+          .then(response => {
+            console.log(response.data);
+            setRestaurantInfo(response.data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
+  
+      fetchRestaurantInfo();
+      }, []);
   
     const handleAddCategory = () => {
+      // Lógica para adicionar categoria
       handleCloseCategoryModal();
     };
   
     const handleAddProduct = () => {
+      // Lógica para adicionar produto
       handleCloseProductModal();
     };
 
@@ -28,7 +55,7 @@ const Admin = () => {
       {
         id: 1,
         category: 'Principal',
-        products: [
+        items: [
           { id: 1, name: 'Parmegiana', 
                    price: 21.90,
                    rating: 4,
@@ -46,7 +73,7 @@ const Admin = () => {
       {
         id: 2,
         category: 'Bebidas',
-        products: [
+        items: [
           { id: 3, name: 'Coca-Cola',
                    price: 8,
                    rating: 4,
@@ -66,7 +93,11 @@ const Admin = () => {
     return (
         <div id='admin'>
             <div className="header">
-            <div className="logo">Logo Aqui</div>
+            <div className="logo">
+            {restaurantInfo && (
+              <img src={restaurantInfo.logo} alt={restaurantInfo.name} />
+            )}
+            </div>
             <a href='/login'><FontAwesomeIcon className='icon-cog' icon={faSignOutAlt} /></a>
         </div>
         

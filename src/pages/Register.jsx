@@ -28,20 +28,16 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    // Create a new FormData instance
     const data = new FormData();
   
-    // Append all form data to it
     for (const key in formData) {
       data.append(key, formData[key]);
     }
   
-    // Log each field in the FormData object
     for (var pair of data.entries()) {
       console.log(pair[0]+ ', ' + pair[1]); 
     }
   
-    // Send a POST request to the endpoint
     api.post('/restaurant', data, {
       headers: {
         'Content-Type': 'multipart/form-data',

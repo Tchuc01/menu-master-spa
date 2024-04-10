@@ -12,17 +12,7 @@ const fetchRestaurants = async () => {
 };
 
 const Home = () => {
-    const [restaurants, setRestaurants] = useState([]);
-
-    useEffect(() => {
-        api.get('/restaurants')
-            .then(response => {
-                setRestaurants(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+    const { data: restaurants, isLoading } = useQuery('restaurants', fetchRestaurants);
 
     return (
         <div id='home'>

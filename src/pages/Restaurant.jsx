@@ -6,36 +6,6 @@ import api from '../service/api';
 import Categories from '../shared/components/Categories';
 import Footer from '../shared/components/Footer';
 
-const data = [
-  {
-    id: 1,
-    category: 'Principal',
-    items: [
-      {
-        id: 1, name: 'Parmegiana',
-        price: 21.90,
-        rating: 5,
-        image: 'https://cooknenjoy.com/wp-content/uploads/2022/02/Bife-a-Parmegiana-02-1920x1442.jpg',
-        description: 'Bife à parmegiana com arroz e batata frita'
-      },
-      {
-        id: 2, name: 'Bife',
-        price: 8.5,
-        rating: 4.5,
-        description: 'Bife com fritas',
-        image: 'https://www.minhareceita.com.br/app/uploads/2022/10/2647-bife-bovino-de-churrasco-alemao-rindersteak-1-aspect-ratio-270-260.jpg'
-      },
-    ],
-  },
-  {
-    id: 2,
-    category: 'Bebidas',
-    items: [
-      { id: 3, name: 'Coca-Cola', price: 8, rating: 4, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxG53Ui_cpIf9t1aosCovBKavvv5NZ16QBB8mcQTwM5Q&s' },
-      { id: 4, name: 'Suco', price: 25 },
-    ],
-  },
-];
 
 const Restaurant = () => {
 
@@ -57,7 +27,7 @@ const Restaurant = () => {
 
     fetchRestaurantInfo();
   }, [username]);
-
+  
   return (
     <div id='restaurant'>
       <div className="header">
@@ -72,7 +42,7 @@ const Restaurant = () => {
       </div>
 
       <div className="container">
-        <Categories data={data} />
+        <Categories restaurantId={'360079d2-3f54-4ed1-89e5-e733706d3bc5'} />
       </div>
       <Footer />
     </div>

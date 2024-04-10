@@ -21,6 +21,7 @@ const Category = ({ data }) => {
               </div>
           </div>
         </div>
+        
       ))}
     </div>
   );
