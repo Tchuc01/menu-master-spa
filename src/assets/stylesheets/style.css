@@ -265,6 +265,8 @@
     align-items: center;
     flex-direction: column;
 
+    padding-bottom: 40px;
+
     background-color: #f1f1f1;
     min-height: 100vh;
 
@@ -334,8 +336,9 @@
 }
 
 .restaurant-logo {
-    width: 70px !important;
-    height: 70px !important;
+    border-radius: 5px;
+    width: 80px !important;
+    height: 80px !important;
 }
 
 #main-footer {
@@ -369,6 +372,10 @@
     .menumaster-span {
         font-family: 'Shrikhand', cursive;
         color: #FF2A34;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -411,3 +418,49 @@
 #admin {
     background-color: #f1f1f1;
 }
+
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ff858b;
+    color: #FF2A34;
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+  }
+  .dot-flashing::before, .dot-flashing::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ff858b;
+    color: #FF2A34;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  .dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ff858b;
+    color: #FF2A34;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dot-flashing {
+    0% {
+        background-color: #ff858b;
+    }
+    50%, 100% {
+      background-color: #ff858b33;
+    }
+  }
