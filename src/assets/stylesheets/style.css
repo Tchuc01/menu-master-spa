@@ -19,6 +19,7 @@
     }
 
     .logo-span {
+        user-select: none;
         font-family: 'Shrikhand', cursive;
         color: #FF2A34;
         font-size: 22px;
@@ -281,7 +282,7 @@
     }
     .restaurant-card:hover {
         cursor: pointer;
-        background-color: rgb(236, 236, 236);
+        background-color: rgb(245, 245, 245);
         transition: background-color 0.3s ease;
     }
 
