@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import api from '../service/api';
 import MainLogo from '../shared/components/MainLogo';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [restaurants, setRestaurants] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('/restaurants')
@@ -16,6 +18,11 @@ const Home = () => {
                 console.error(error);
             });
     }, []);
+
+    const handleRestaurantClick = (restaurantId) => {
+      localStorage.setItem('selectedRestaurantId', restaurantId);
+      navigate('/Restaurant');
+  };
 
     return (
         <div id='home'>
@@ -33,7 +40,7 @@ const Home = () => {
                     <h2>Restaurantes disponíveis</h2>
                 </div>
                 {restaurants.map(restaurant => (
-                    <div key={restaurant.id} className="restaurant-card">
+                    <div key={restaurant.id} className="restaurant-card"  onClick={() => handleRestaurantClick(restaurant.id)}>
                         <h3 className='restaurant-name'>{restaurant.name}</h3>
                         <img className='restaurant-logo' src={restaurant.logo} alt={restaurant.name} />
                     </div>

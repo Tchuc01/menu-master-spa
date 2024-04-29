@@ -1,27 +1,64 @@
 import React, { useState } from 'react';
+import api from '../service/api';
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    restaurantName: '',
+    name: '',
     logo: null,
   });
-
+  
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    console.log(FormData);
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
-
+  
   const handleLogoChange = (e) => {
     const file = e.target.files[0];
-    setFormData((prevData) => ({ ...prevData, logo: file }));
+    setFormData({
+      ...formData,
+      logo: file,
+    });
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode enviar os dados para o backend ou fazer o que for necessário
-    console.log(formData);
+  
+    // Create a new FormData instance
+    const data = new FormData();
+  
+    // Append all form data to it
+    for (const key in formData) {
+      data.append(key, formData[key]);
+    }
+  
+    // Log each field in the FormData object
+    for (var pair of data.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]); 
+    }
+  
+    // Send a POST request to the endpoint
+    api.post('/restaurant', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setFormData({
+          username: '',
+          password: '',
+          name: '',
+          logo: null,
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (
@@ -32,7 +69,7 @@ const Register = () => {
             <form className='d-flex flex-column align-items-center btn-100' onSubmit={handleSubmit}>
                 <input className='form-control mb-3' type="text" name="username" placeholder="Usuário" onChange={handleChange} />
                 <input className='form-control mb-3' type="password" name="password" placeholder="Senha" onChange={handleChange} />
-                <input className='form-control mb-3' type="text" name="restaurantName" placeholder="Nome do restaurante" onChange={handleChange} />
+                <input className='form-control mb-3' type="text" name="name" placeholder="Nome do restaurante" onChange={handleChange} />
                 <input className='form-control mb-3' type="file" name="logo" onChange={handleLogoChange} />
                 <button className='btn btn-danger btn-100' type="submit">Registrar</button>
             </form>

@@ -1,13 +1,26 @@
 import StarRating from './StarRating';
 
 const Categories = ({ data }) => {
+  console.log(data);
+
+  if (!data || typeof data !== 'object') {
+    console.error("Invalid data format.");
+    return null; // or handle the error in your UI
+  }
+
+  const categories = Object.keys(data).map(categoryId => ({
+    id: categoryId,
+    category: data[categoryId].category,
+    products: Object.values(data[categoryId].products)
+  }));
+
   return (
     <div>
-      {data.map((category) => (
+      {categories.map((category) => (
         <div key={category.id} className="category">
           <h2>{category.category}</h2>
           <div className="items">
-            {category.items.map((item) => (
+            {category.products.map((item) => (
               <div key={item.id} className="item-card">
                 <div className='item-info-container'>
                     <span className='d-flex align-items-baseline'>
@@ -25,7 +38,6 @@ const Categories = ({ data }) => {
           </div>
           <hr />
         </div>
-        
       ))}
     </div>
   );

@@ -30,7 +30,7 @@ const Admin = () => {
       {
         id: 1,
         category: 'Principal',
-        items: [
+        products: [
           { id: 1, name: 'Parmegiana', 
                    price: 21.90,
                    rating: 4,
@@ -48,7 +48,7 @@ const Admin = () => {
       {
         id: 2,
         category: 'Bebidas',
-        items: [
+        products: [
           { id: 3, name: 'Coca-Cola',
                    price: 8,
                    rating: 4,

@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import MainLogo from '../shared/components/MainLogo';
+import api from '../service/api';
 
 const Login = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -12,11 +16,31 @@ const Login = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode enviar os dados para o backend ou fazer o que for necessário
-    console.log(formData);
+  
+    api.post('/restaurant/login', {
+      username: formData.username,
+      password: formData.password,
+    }, {
+      headers: {
+        'Content-Type': 'application/json', // Alterado para JSON
+      },
+    })
+      .then((response) => {
+        const { token } = response.data;
+
+        
+
+        localStorage.setItem('token', token);
+
+        navigate('/index');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
+
 
   return (
     <div className='card-container'>
