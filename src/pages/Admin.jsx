@@ -17,12 +17,10 @@ const Admin = () => {
     const handleShowProductModal = () => setShowProductModal(true);
   
     const handleAddCategory = () => {
-      // Lógica para adicionar categoria
       handleCloseCategoryModal();
     };
   
     const handleAddProduct = () => {
-      // Lógica para adicionar produto
       handleCloseProductModal();
     };
 

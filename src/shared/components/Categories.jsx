@@ -5,7 +5,7 @@ const Categories = ({ data }) => {
 
   if (!data || typeof data !== 'object') {
     console.error("Invalid data format.");
-    return null; // or handle the error in your UI
+    return null;
   }
 
   const categories = Object.keys(data).map(categoryId => ({

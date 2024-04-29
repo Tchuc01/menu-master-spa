@@ -36,7 +36,6 @@ const Restaurant = () => {;
         setData(groupedProducts);
 
         console.log(groupedProducts);
-        // Faça o que quiser com groupedProducts, como armazenar em um estado para renderizar na UI
       })
       .catch(error => {
         console.error(error);
@@ -46,7 +45,6 @@ const Restaurant = () => {;
 
   return (
     <div id='restaurant'>
-      {/* Header */}
       <div className="header">
         <div className="logo">Logo Aqui</div>
         <div class="search-div input-group mb-3">
