@@ -491,6 +491,13 @@
     animation: dot-flashing 1s infinite alternate;
     animation-delay: 1s;
   }
+
+  .txt-bt{
+    font-size: 15px;
+    padding-top: 12px;
+    color: #FF2A34;
+    text-decoration: none;
+  }
   
   @keyframes dot-flashing {
     0% {
