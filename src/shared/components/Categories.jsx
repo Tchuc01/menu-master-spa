@@ -9,7 +9,11 @@ const Categories = ({ restaurantId }) => {
 
   useEffect(() => {
     const fetchRestaurantMenu = async () => {
-      api.get(`/products/${restaurantId}`)
+      api.get(`/products/${restaurantId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
         .then(response => {
           console.log(response.data);
           setRestaurantMenu(response.data);
@@ -20,7 +24,7 @@ const Categories = ({ restaurantId }) => {
     };
 
     fetchRestaurantMenu();
-  }, [username]);
+  }, [username, restaurantId]);
 
   // Create categories object
   const categories = restaurantMenu?.reduce((acc, product) => {

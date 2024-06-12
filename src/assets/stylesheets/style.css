@@ -91,6 +91,7 @@
     .logo {
         img {
             max-width: 96px;
+            border-radius: 8px;
         }
     }
 

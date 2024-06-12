@@ -42,7 +42,7 @@ const Restaurant = () => {
       </div>
 
       <div className="container">
-        <Categories restaurantId={'360079d2-3f54-4ed1-89e5-e733706d3bc5'} />
+         {restaurantInfo && <Categories restaurantId={restaurantInfo.id} />}
       </div>
       <Footer />
     </div>
