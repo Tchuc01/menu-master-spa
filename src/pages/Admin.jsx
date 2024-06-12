@@ -175,14 +175,17 @@ const Admin = () => {
 
     return (
         <div id='admin'>
-            <div className="header">
-              <div className="logo">
-                {restaurantInfo && (
-                  <img src={restaurantInfo.logo} alt={restaurantInfo.name} />
-                )}
-              </div>
+          <div className="header">
+            <div className="logo">
+              {restaurantInfo && (
+                <img src={restaurantInfo.logo} alt={restaurantInfo.name} />
+              )}
+            </div>
+            {restaurantInfo && (
+                <h3>{restaurantInfo.name}</h3>
+              )}
             <a href='/login'><FontAwesomeIcon className='icon-cog' icon={faSignOutAlt} /></a>
-        </div>
+          </div>
         
         <div className='admin-options'>
             <h3>Categorias</h3>
@@ -191,7 +194,7 @@ const Admin = () => {
             <hr />
             <h3>Produtos</h3>
             <Button variant="danger" className='round-button' onClick={handleShowProductModal}><FontAwesomeIcon icon={faPlus} /></Button>
-            <Product data={Object.values(products)} />
+            <Product data={Object.values(products)} categories={Object.values(categories)} />
         </div>
         {/* Modal para Adicionar Categoria */}
         <Modal show={showCategoryModal} onHide={handleCloseCategoryModal}>

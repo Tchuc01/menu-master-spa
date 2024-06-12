@@ -38,7 +38,7 @@ const Restaurant = () => {
           <input type="text" className="form-control" placeholder="Pesquisar" aria-label="Recipient's username" aria-describedby="button-addon2" />
           <button className="btn btn-outline-secondary" type="button" id="button-addon2"><FontAwesomeIcon className='text-dark' icon={faMagnifyingGlass} /></button>
         </div>
-        <a href='/admin'><FontAwesomeIcon className='icon-cog' icon={faCog} /></a>
+        <a href='/login'><FontAwesomeIcon className='icon-cog' icon={faCog} /></a>
       </div>
 
       <div className="container">
