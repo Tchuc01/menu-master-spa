@@ -206,7 +206,37 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    width: 100%;
+    width: 100%; 
+}
+
+.vote-btn {
+    width: 90px;
+}
+
+.vote-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    .modal-header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border: none;
+    }
+    .modal-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+        border: none;
+    }
+    .modal-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+        border: none;
+    }
 }
 
 .items-category {
@@ -327,7 +357,7 @@
         gap: 25px;
 
         width: 50%;
-        height: 20%;
+        min-height: 50vh;
     }
 
     .item-info-container {
@@ -339,8 +369,6 @@
         justify-content: center;
         align-items: center;
     }
-
-
 }
 
 .restaurant-logo {
