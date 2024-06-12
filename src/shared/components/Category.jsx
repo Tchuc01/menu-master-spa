@@ -1,4 +1,5 @@
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal, Button, Form } from 'react-bootstrap';
 import api from '../../service/api';
@@ -12,6 +13,7 @@ const Category = ({ data }) => {
   
 
   const token = localStorage.getItem('token');
+  const [categoryID, setCategoryID] = useState('');
 
   const handleDeleteCategory = (id) => {
     api.delete(`/category/`,{
@@ -39,10 +41,17 @@ const Category = ({ data }) => {
     })
       .then(response => {
         console.log(response.data.name);
+        setCategoryName(response.data.name);
+        setCategoryID(response.data.id);
+        handleShowCategoryModal();
       })
       .catch(error => {
         console.error(error);
       });
+  };
+
+  const editCategory = (id) => {
+    
   };
 
   return (
@@ -58,8 +67,8 @@ const Category = ({ data }) => {
                       </span>
                   </div>
                   <div className="options">
-                  <Button variant="white" className='round-button custom-border' onClick={() => handleEditCategory(category.id)}><FontAwesomeIcon icon={faPencil} /></Button>
-                  <Button variant="danger" className='round-button' onClick={() => handleDeleteCategory(category.id)}><FontAwesomeIcon icon={faTrash} /></Button>
+                    <Button variant="white" className='round-button custom-border' onClick={() => handleEditCategory(category.id)}><FontAwesomeIcon icon={faPencil} /></Button>
+                    <Button variant="danger" className='round-button' onClick={() => handleDeleteCategory(category.id)}><FontAwesomeIcon icon={faTrash} /></Button>
                   </div>
                 </div>
             </div>
@@ -80,7 +89,7 @@ const Category = ({ data }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary"  onClick={handleCloseCategoryModal}>Fechar</Button>
-          <Button variant="primary" onClick={handleAddCategory}>Editar</Button>
+          <Button variant="primary" onClick={editCategory}>Editar</Button>
         </Modal.Footer>
       </Modal>
     </div>
