@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import api from '../service/api';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -57,6 +60,10 @@ const Register = () => {
       });
   };
 
+  const handleLogin = async ()=>{
+    navigate('/login');
+  }
+
   return (
     <div className='card-container'>
         <div className='card d-flex flex-column align-items-center'>
@@ -69,6 +76,9 @@ const Register = () => {
                 <input className='form-control mb-3' type="file" name="logo" onChange={handleLogoChange} />
                 <button className='btn btn-danger btn-100' type="submit">Registrar</button>
             </form>
+            <a className='txt-bt' href='' onClick={handleLogin}>
+              Já possui uma conta? Faça seu login aqui!
+            </a>
         </div>
     </div>
   );

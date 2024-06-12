@@ -40,6 +40,9 @@ const Login = () => {
       });
   };
 
+  const handleRegister = async ()=>{
+    navigate('/register');
+  }
 
   return (
     <div className='card-container'>
@@ -50,6 +53,9 @@ const Login = () => {
                 <input className='form-control mb-3' type="password" name="password" placeholder="Senha" onChange={handleChange} />
                 <button className='btn btn-danger btn-100' type="submit">Logar</button>
             </form>
+            <a className='txt-bt' href='' onClick={handleRegister}>
+              Não tem uma conta? Faça seu cadastro aqui!
+            </a>
         </div>
     </div>
   );
