@@ -6,7 +6,7 @@ import time
 driver = webdriver.Chrome() 
 
 # Abrir o site
-driver.get("http://localhost:3000/asd")
+driver.get("http://localhost:3000/takeshi")
 
 # Aguarde a página carregar 
 time.sleep(5)

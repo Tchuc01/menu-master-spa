@@ -112,6 +112,7 @@ const Categories = ({ restaurantId }) => {
               <button
                 key={i}
                 type="button"
+                className={`bt-star-${i}`}
                 onClick={() => handleStarClick(ratingValue)}
                 style={{ background: "none", border: "none", cursor: "pointer" }}
               >
