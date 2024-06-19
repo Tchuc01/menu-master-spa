@@ -8,7 +8,7 @@ import time
 driver = webdriver.Chrome()  
 
 # Abrir o site
-driver.get("http://localhost:3000/takeshi")
+driver.get("http://localhost:3000/bambu")
 
 # Aguarde a página carregar 
 time.sleep(5)
