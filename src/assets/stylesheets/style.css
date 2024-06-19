@@ -211,6 +211,7 @@
 
 .vote-btn {
     width: 90px;
+    padding: 0;
 }
 
 .vote-modal {
@@ -237,6 +238,17 @@
         gap: 16px;
         border: none;
     }
+}
+
+.category {
+    margin-bottom: 16px;
+}
+
+.star-rating-container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
 }
 
 .items-category {

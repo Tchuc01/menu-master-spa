@@ -87,11 +87,13 @@ const Categories = ({ restaurantId }) => {
                     <p className='item-price'>R${item.price}</p>
                   </span>
                   <span>{item.description}</span>
-                  <StarRating rating={item.averageRating} />
-                  <button className='btn btn-outline-danger vote-btn' onClick={() => {
-                    setShowModal(true);
-                    setProductID(item.id);
-                  }}>Avaliar</button>
+                  <div className='star-rating-container'>
+                    <StarRating rating={item.averageRating} />
+                    <button className='btn btn-outline-danger btn-sm vote-btn' onClick={() => {
+                      setShowModal(true);
+                      setProductID(item.id);
+                    }}>Avaliar</button>
+                  </div>
                 </div>
                 <div className='item-image-container'>
                   <img src={item.image} alt={item.name} />

@@ -54,6 +54,7 @@ const Register = () => {
           name: '',
           logo: null,
         });
+        navigate('/login');
       })
       .catch((error) => {
         console.error('Error:', error);
